@@ -1,0 +1,20 @@
+.nav-icon {
+    margin-right: 10px;
+    position: relative;
+}
+  
+.nav-icon .fa-shopping-cart {
+    font-size: 2.5rem;
+}
+  
+.cart-count {
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
