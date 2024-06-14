@@ -39,12 +39,14 @@ export default function ProductsList() {
     <div>
       <Header onSearch={setSearchTerm} />
       <Container className='py-5 mb-3'>
-        <Button className="mt-5" onClick={() => handleSortByPrice('asc')}>
-          Sort by Price (Low to High)
-        </Button>
-        <Button className="mt-5 ms-3" onClick={() => handleSortByPrice('desc')}>
-          Sort by Price (High to Low)
-        </Button>
+        <div className="d-flex flex-wrap justify-content-center mb-3 mt-5">
+          <Button className="m-2" onClick={() => handleSortByPrice('asc')}>
+            Sort by Price (Low to High)
+          </Button>
+          <Button className="m-2" onClick={() => handleSortByPrice('desc')}>
+            Sort by Price (High to Low)
+          </Button>
+        </div>
         {loading ? (
           <div className="spinner-container d-flex justify-content-center align-items-center">
             <Spinner animation="border" variant="primary" />
