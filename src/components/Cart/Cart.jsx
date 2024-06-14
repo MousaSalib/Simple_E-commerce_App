@@ -1,15 +1,22 @@
-import React from 'react';
-import { Button, Container, Image, Table } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Button, Container, Image, Table, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addToCart, clear, deleteFromCart } from '../../redux/slices/cart-slice';
-
+import './Cart.css';
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (cart) {
+      setLoading(false);
+    }
+  }, [cart]);
 
   const totalPrice = cart.reduce((acc, product) => {
     acc += product.price * product.quantity;
@@ -58,6 +65,14 @@ export default function Cart() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="spinner-container d-flex justify-content-center align-items-center">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
+  }
+
   return (
     <Container className='py-5 mb-5'>
       <h1 className='py-5'>Welcome to the Cart</h1>
@@ -65,7 +80,7 @@ export default function Cart() {
         <h3>Total Price: {totalPrice.toFixed(2)} $</h3>
         <Button variant='danger' onClick={handleClearCart}>CLEAR CART</Button>
       </div>
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>
@@ -81,7 +96,7 @@ export default function Cart() {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.title}</td>
-              <td><Image src={product.image} alt={product.title} style={{ width: "100px", height: "100px"}}/></td>
+              <td><Image src={product.image} alt={product.title} style={{ width: "100px", height: "100px" }} /></td>
               <td>{product.price}</td>
               <td>{product.quantity}</td>
               <td>
@@ -97,4 +112,3 @@ export default function Cart() {
     </Container>
   );
 }
-
