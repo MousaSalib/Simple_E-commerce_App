@@ -75,12 +75,12 @@ export default function Cart() {
 
   return (
     <Container className='py-5 mb-5'>
-      <h1 className='py-5'>Welcome to the Cart</h1>
-      <div className="d-flex justify-content-between mb-1">
-        <h3>Total Price: {totalPrice.toFixed(2)} $</h3>
+      <h1 className='py-5 text-center'>Welcome to the Cart</h1>
+      <div className="d-flex justify-content-between mb-3 flex-column flex-md-row">
+        <h3 className="mb-3 mb-md-0">Total Price: {totalPrice.toFixed(2)} $</h3>
         <Button variant='danger' onClick={handleClearCart}>CLEAR CART</Button>
       </div>
-      <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive className='mb-5'>
         <thead>
           <tr>
             <th>#</th>
@@ -96,7 +96,7 @@ export default function Cart() {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.title}</td>
-              <td><Image src={product.image} alt={product.title} style={{ width: "100px", height: "100px" }} /></td>
+              <td><Image src={product.image} alt={product.title} style={{ width: "100px", height: "100px" }} fluid /></td>
               <td>{product.price}</td>
               <td>{product.quantity}</td>
               <td>
