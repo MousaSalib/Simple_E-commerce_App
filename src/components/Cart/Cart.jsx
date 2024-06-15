@@ -97,7 +97,7 @@ export default function Cart() {
               <td>{product.id}</td>
               <td>{product.title}</td>
               <td><Image src={product.image} alt={product.title} style={{ width: "100px", height: "100px" }} fluid /></td>
-              <td>{product.price}</td>
+              <td>{product.price} $</td>
               <td>{product.quantity}</td>
               <td>
                 <Button variant='success' onClick={() => dispatch(addToCart(product))}>ADD</Button>

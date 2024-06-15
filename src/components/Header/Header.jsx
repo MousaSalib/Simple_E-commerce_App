@@ -27,7 +27,7 @@ export default function Header({ onSearch }) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" fixed='top'>
       <Container>
-        <Link to={'/'} className='navbar-brand'>Products List</Link>
+        <Link to={'/'} className='navbar-brand'>MOMENTUM SOLUTIONS</Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -35,7 +35,7 @@ export default function Header({ onSearch }) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            {/*<Link to={'/'} className='nav-link'>Products-List</Link>*/}
+            <Link to={'/'} className='nav-link'>Products List</Link>
             {isProductsList && (
               <Nav.Item>
                 <Form.Select value={selectedCategory} onChange={handleCategoryChange} aria-label="Category Select" className="mx-2">
